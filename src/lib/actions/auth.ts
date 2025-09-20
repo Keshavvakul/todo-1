@@ -5,9 +5,6 @@ import { signToken, setAuthCookie, clearAuthCookie } from '../auth'
 import { prisma } from '../prisma'
 import { redirect } from 'next/navigation'
 
-// Force dynamic rendering for server actions
-export const dynamic = 'force-dynamic'
-
 export async function signUp(email: string, password: string, name?: string) {
   try {
     if (!email || !email.includes('@')) {

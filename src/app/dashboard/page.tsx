@@ -1,12 +1,17 @@
 import { redirect } from 'next/navigation'
+import { unstable_noStore as noStore } from 'next/cache'
 import { getCurrentUser } from '@/lib/auth'
 import { getUserTodos } from '@/lib/actions/todos'
 import DashboardClient from './DashboardClient'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function DashboardPage() {
+  // Prevent static generation
+  noStore()
+  
   const user = await getCurrentUser()
   
   if (!user) {

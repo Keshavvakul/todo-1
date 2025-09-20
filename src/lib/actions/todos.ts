@@ -4,9 +4,6 @@ import { getCurrentUser } from '../auth'
 import { prisma } from '../prisma'
 import { revalidatePath } from 'next/cache'
 
-// Force dynamic rendering for server actions
-export const dynamic = 'force-dynamic'
-
 export async function createTodo(title: string, description?: string) {
   try {
     const user = await getCurrentUser()
