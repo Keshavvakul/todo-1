@@ -3,6 +3,9 @@ import { getCurrentUser } from '@/lib/auth'
 import { getUserTodos } from '@/lib/actions/todos'
 import DashboardClient from './DashboardClient'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default async function DashboardPage() {
   const user = await getCurrentUser()
   
