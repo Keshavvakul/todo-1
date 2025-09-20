@@ -13,7 +13,7 @@ export interface JWTPayload {
 }
 
 export function signToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string {
-  return (jwt.sign as any)(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN })
+  return (jwt.sign as any)(payload, JWT_SECRET)
 }
 
 export async function verifyToken(token: string): Promise<JWTPayload | null> {
