@@ -19,7 +19,7 @@ export function signToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string {
 export async function verifyToken(token: string): Promise<JWTPayload | null> {
   try {
     return jwt.verify(token, JWT_SECRET) as JWTPayload
-  } catch (error) {
+  } catch {
     return null
   }
 }

@@ -48,7 +48,7 @@ export default function DashboardClient({ user, initialTodos }: DashboardClientP
         setNewTodoTitle('')
         setNewTodoDescription('')
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred')
     } finally {
       setIsCreating(false)
@@ -64,7 +64,7 @@ export default function DashboardClient({ user, initialTodos }: DashboardClientP
       } else {
         setTodos(todos.filter(todo => todo.id !== todoId))
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred')
     }
   }
